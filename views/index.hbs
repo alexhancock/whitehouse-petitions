@@ -1,0 +1,27 @@
+<!doctype HTML>
+
+<html>
+<head>
+<title>White House Petitions</title>
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div id="petitions"class="row-fluid">
+    <div class="hero-unit offset1 span10">
+        <h1><i>White House Petitions</i></h1>
+    </div>
+</div>
+
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="js/handlebars.js"></script>
+<script src="js/templates.js"></script>
+<script type="text/javascript">
+    $.getJSON('/petitions', function(data){
+        data.forEach(function(petition){
+            $('#petitions').append(Handlebars.templates['petition.hbs'](petition));
+        });
+    });
+</script>
+</body>
+</html>
